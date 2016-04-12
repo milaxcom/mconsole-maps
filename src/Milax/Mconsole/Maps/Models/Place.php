@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Mconsole\Maps\Models;
+namespace Milax\Mconsole\Maps\Models;
 
 use Illuminate\Database\Eloquent\Model;
 

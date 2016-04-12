@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Mconsole\Maps\Http\Controllers;
+namespace Milax\Mconsole\Maps\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Mconsole\Maps\Models\Map;
+use Milax\Mconsole\Maps\Models\Map;
 use HasQueryTraits;
 use Redirectable;
 use Paginatable;
@@ -16,7 +16,7 @@ class MapsController extends Controller
 {
     use HasQueryTraits, Redirectable, Paginatable;
     
-    protected $model = 'App\Mconsole\Maps\Models\Map';
+    protected $model = 'Milax\Mconsole\Maps\Models\Map';
     protected $redirectTo = '/mconsole/maps';
     
     /**

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Mconsole\Maps\Models;
+namespace Milax\Mconsole\Maps\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -15,6 +15,6 @@ class Map extends Model
      */
     public function places()
     {
-        return $this->hasMany('App\Mconsole\Maps\Place');
+        return $this->hasMany('Milax\Mconsole\Maps\Place');
     }
 }

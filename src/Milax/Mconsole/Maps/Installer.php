@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Mconsole\Maps;
+namespace Milax\Mconsole\Maps;
 
 use Milax\Mconsole\Contracts\ModuleInstaller;
 

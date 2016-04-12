@@ -1,6 +1,6 @@
 <?php
 
-use App\Mconsole\Maps\Installer;
+use Milax\Mconsole\Maps\Installer;
 
 /**
  * Maps module bootstrap file
