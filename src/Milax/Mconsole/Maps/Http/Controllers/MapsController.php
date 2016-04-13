@@ -5,16 +5,13 @@ namespace Milax\Mconsole\Maps\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Milax\Mconsole\Maps\Models\Map;
-use HasQueryTraits;
-use Redirectable;
-use Paginatable;
 
 /**
  * Maps module controller file
  */
 class MapsController extends Controller
 {
-    use HasQueryTraits, Redirectable, Paginatable;
+    use \HasQueryTraits, \HasRedirects, \HasPaginator;
     
     protected $model = 'Milax\Mconsole\Maps\Models\Map';
     protected $redirectTo = '/mconsole/maps';
