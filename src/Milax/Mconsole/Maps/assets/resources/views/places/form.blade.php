@@ -18,11 +18,10 @@
         
         <div class="col-lg-5 col-md-6">
             <div class="portlet light">
-				<div class="portlet-title">
-					<div class="caption">
-						<span class="caption-subject font-blue sbold uppercase">{{ trans('mconsole::place.form.information') }}</span>
-					</div>
-				</div>
+                @include('mconsole::partials.portlet-title', [
+                    'back' => sprintf('/mconsole/maps/%s/places', $map->id),
+                    'title' => trans('mconsole::place.form.information'),
+                ])
 				<div class="portlet-body form">
                     @include('mconsole::forms.text', [
                         'label' => trans('mconsole::place.form.name'),
