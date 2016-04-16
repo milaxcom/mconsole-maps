@@ -11,6 +11,7 @@
 		<div class="col-lg-7 col-md-6">
 			<div class="portlet light">
                 @include('mconsole::partials.portlet-title', [
+                    'back' => '/mconsole/maps',
                     'title' => trans('mconsole::maps.form.main'),
                     'fullscreen' => true,
                 ])
