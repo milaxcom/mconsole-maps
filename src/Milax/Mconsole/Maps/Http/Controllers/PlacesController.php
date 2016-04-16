@@ -3,18 +3,28 @@
 namespace Milax\Mconsole\Maps\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use Milax\Mconsole\Maps\Http\Requests\PlaceRequest;
+use Milax\Mconsole\Maps\Models\Place;
 use Milax\Mconsole\Maps\Models\Map;
-use Milax\Mconsole\Maps\Http\Requests\MapRequest;
+use View;
 
 /**
  * Maps module controller file
  */
-class MapsController extends Controller
+class PlacesController extends Controller
 {
-    use \HasQueryTraits, \HasRedirects, \HasPaginator;
+    use \HasQueryTraits, \HasRedirects;
     
-    protected $model = 'Milax\Mconsole\Maps\Models\Map';
-    protected $redirectTo = '/mconsole/maps';
+    protected $model = 'Milax\Mconsole\Maps\Models\Place';
+    
+    public function __construct(Request $request)
+    {
+        $this->map = (int) $request->segment(3);
+        $this->map = Map::find($this->map);
+        $this->redirectTo = sprintf('/mconsole/maps/%s/places', $this->map);
+        View::share('map', $this->map);
+    }
     
     /**
      * Display a listing of the resource.
@@ -23,13 +33,11 @@ class MapsController extends Controller
      */
     public function index()
     {
-        return $this->setQuery(Map::with('places'))->setPerPage(20)->run('mconsole::maps.list', function ($item) {
+        return $this->setQuery(Place::with('map')->where('map_id', $this->map->id))->run('mconsole::places.list', function ($item) {
             return [
                 '#' => $item->id,
-                trans('mconsole::maps.table.name') => $item->name,
-                trans('mconsole::maps.table.provider') => $item->provider,
-                trans('mconsole::maps.table.places') => sprintf('<a href="/mconsole/maps/%s/places/create" class="btn btn-xs green-jungle">%s</a> <a href="/mconsole/maps/%s/places" class="btn btn-xs blue">%s</a>', $item->id, trans('mconsole::maps.table.addplace'), $item->id, trans('mconsole::maps.table.viewplaces')),
-                trans('mconsole::maps.table.count') => $item->places->count(),
+                trans('mconsole::place.table.name') => $item->name,
+                trans('mconsole::place.table.address') => $item->address,
             ];
         });
     }
@@ -41,7 +49,7 @@ class MapsController extends Controller
      */
     public function create()
     {
-        return view('mconsole::maps.form');
+        return view('mconsole::places.form');
     }
 
     /**
@@ -50,9 +58,9 @@ class MapsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(MapRequest $request)
+    public function store(PlaceRequest $request)
     {
-        Map::create($request->all());
+        Place::create($request->all());
     }
 
     /**
@@ -74,8 +82,8 @@ class MapsController extends Controller
      */
     public function edit($id)
     {
-        return view('mconsole::maps.form', [
-            'item' => Map::find($id),
+        return view('mconsole::places.form', [
+            'item' => Place::find($id),
         ]);
     }
 
@@ -86,9 +94,9 @@ class MapsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(MapRequest $request, $id)
+    public function update(PlaceRequest $request, $id)
     {
-        Map::find($id)->update($request->all());
+        Place::find($id)->update($request->all());
     }
 
     /**
@@ -99,6 +107,6 @@ class MapsController extends Controller
      */
     public function destroy($id)
     {
-        Map::destroy($id);
+        Place::destroy($id);
     }
 }

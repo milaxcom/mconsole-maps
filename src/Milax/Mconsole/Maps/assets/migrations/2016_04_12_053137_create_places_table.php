@@ -14,6 +14,18 @@ class CreatePlacesTable extends Migration
     {
         Schema::create('places', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('map_id');
+            $table->string('latitude');
+            $table->string('longitude');
+            $table->string('name');
+            $table->string('address');
+            $table->string('country');
+            $table->string('city');
+            $table->string('zip');
+            $table->string('phone');
+            $table->string('web');
+            $table->text('comment');
+            $table->boolean('enabled')->default(true);
             $table->timestamps();
         });
     }

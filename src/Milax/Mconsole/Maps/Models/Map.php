@@ -9,12 +9,12 @@ class Map extends Model
     protected $fillable = ['provider', 'name', 'description', 'center', 'zoom'];
     
     /**
-     * Relationship to Place
+     * Relationship to Milax\Mconsole\Maps\Models\Place
      * 
-     * @return HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function places()
     {
-        return $this->hasMany('Milax\Mconsole\Maps\Place');
+        return $this->hasMany('Milax\Mconsole\Maps\Models\Place');
     }
 }

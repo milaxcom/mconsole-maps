@@ -10,5 +10,6 @@ Route::group([
 ], function () {
     
     Route::resource('maps', 'MapsController');
+    Route::resource('maps/{id}/places', 'PlacesController');
 
 });
