@@ -22,7 +22,7 @@ class PlacesController extends Controller
     {
         $this->map = (int) $request->segment(3);
         $this->map = Map::find($this->map);
-        $this->redirectTo = sprintf('/mconsole/maps/%s/places', $this->map);
+        $this->redirectTo = sprintf('/mconsole/maps/%s/places', $this->map->id);
         View::share('map', $this->map);
     }
     
