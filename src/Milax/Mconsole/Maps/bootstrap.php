@@ -1,7 +1,5 @@
 <?php
 
-use Milax\Mconsole\Maps\Installer;
-
 /**
  * Maps module bootstrap file
  */
@@ -91,10 +89,10 @@ return [
         'dependencies' => [],
     ],
     'install' => function () {
-        Installer::install();
+        \Milax\Mconsole\Maps\Installer::install();
     },
     'uninstall' => function () {
-        Installer::uninstall();
+        \Milax\Mconsole\Maps\Installer::uninstall();
     },
     'init' => function () {
         // ..
