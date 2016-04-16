@@ -17,4 +17,17 @@ class Map extends Model
     {
         return $this->hasMany('Milax\Mconsole\Maps\Models\Place');
     }
+    
+    /**
+     * Automatically delete related data
+     * 
+     * @return void
+     */
+    public static function boot()
+    {
+        parent::boot();
+        static::deleting(function ($map) {
+            $map->places()->delete();
+        });
+    }
 }
