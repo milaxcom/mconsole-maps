@@ -80,7 +80,7 @@ class PlacesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($mapId, $id)
     {
         return view('mconsole::places.form', [
             'item' => Place::find($id),
@@ -94,7 +94,7 @@ class PlacesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(PlaceRequest $request, $id)
+    public function update(PlaceRequest $request, $mapId, $id)
     {
         Place::find($id)->update($request->all());
     }
@@ -105,7 +105,7 @@ class PlacesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($mapId, $id)
     {
         Place::destroy($id);
     }
