@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Milax\Mconsole\Maps\Http\Requests\PlaceRequest;
 use Milax\Mconsole\Maps\Models\Place;
 use Milax\Mconsole\Maps\Models\Map;
+use ListRenderer;
 use View;
 
 /**
@@ -19,8 +20,13 @@ class PlacesController extends Controller
     protected $model = 'Milax\Mconsole\Maps\Models\Place';
     protected $redirectTo = '/mconsole/maps';
     
-    public function __construct(Request $request)
+    /**
+     * Create new class instance
+     */
+    public function __construct(Request $request, ListRenderer $renderer)
     {
+        $this->renderer = $renderer;
+        
         if ($request->segment(3)) {
             $this->map = (int) $request->segment(3);
             $this->map = Map::find($this->map);
@@ -36,7 +42,7 @@ class PlacesController extends Controller
      */
     public function index()
     {
-        return $this->setQuery(Place::with('map')->where('map_id', $this->map->id))->run('mconsole::places.list', function ($item) {
+        return $this->renderer->setQuery(Place::with('map')->where('map_id', $this->map->id))->render(sprintf('maps/%s/places/create', $this->map->id), function ($item) {
             return [
                 '#' => $item->id,
                 trans('mconsole::place.table.name') => $item->name,

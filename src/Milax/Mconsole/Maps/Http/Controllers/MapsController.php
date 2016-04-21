@@ -5,16 +5,25 @@ namespace Milax\Mconsole\Maps\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Milax\Mconsole\Maps\Models\Map;
 use Milax\Mconsole\Maps\Http\Requests\MapRequest;
+use ListRenderer;
 
 /**
  * Maps module controller file
  */
 class MapsController extends Controller
 {
-    use \HasQueryTraits, \HasRedirects, \HasPaginator;
+    use \HasRedirects;
     
     protected $model = 'Milax\Mconsole\Maps\Models\Map';
     protected $redirectTo = '/mconsole/maps';
+    
+    /**
+     * Create new class instance
+     */
+    public function __construct(ListRenderer $renderer)
+    {
+        $this->renderer = $renderer;
+    }
     
     /**
      * Display a listing of the resource.
@@ -23,7 +32,7 @@ class MapsController extends Controller
      */
     public function index()
     {
-        return $this->setQuery(Map::with('places'))->setPerPage(20)->run('mconsole::maps.list', function ($item) {
+        return $this->renderer->setQuery(Map::with('places'))->setPerPage(20)->render('maps/create', function ($item) {
             return [
                 '#' => $item->id,
                 trans('mconsole::maps.table.name') => $item->name,
