@@ -29,4 +29,17 @@ class MapRequest extends Request
             'zoom' => 'numeric',
         ];
     }
+    
+    /**
+     * Set custom validator attribute names
+     *
+     * @return Validator
+     */
+    protected function getValidatorInstance()
+    {
+        $validator = parent::getValidatorInstance();
+        $validator->setAttributeNames(trans('mconsole::maps.form'));
+        
+        return $validator;
+    }
 }
