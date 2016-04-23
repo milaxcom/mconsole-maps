@@ -42,7 +42,7 @@ class PlacesController extends Controller
      */
     public function index()
     {
-        return $this->renderer->setQuery(Place::with('map')->where('map_id', $this->map->id))->render(sprintf('maps/%s/places/create', $this->map->id), function ($item) {
+        return $this->renderer->setQuery(Place::with('map')->where('map_id', $this->map->id))->setAddAction(sprintf('maps/%s/places/create', $this->map->id))->render(function ($item) {
             return [
                 '#' => $item->id,
                 trans('mconsole::place.table.name') => $item->name,
