@@ -32,7 +32,7 @@ class MapsController extends Controller
      */
     public function index()
     {
-        return $this->renderer->setQuery(Map::with('places'))->setPerPage(20)->render('maps/create', function ($item) {
+        return $this->renderer->setQuery(Map::with('places'))->setPerPage(20)->setAddAction('maps/create')->render(function ($item) {
             return [
                 '#' => $item->id,
                 trans('mconsole::maps.table.name') => $item->name,
