@@ -5,7 +5,8 @@ namespace Milax\Mconsole\Maps\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Milax\Mconsole\Maps\Models\Map;
 use Milax\Mconsole\Maps\Http\Requests\MapRequest;
-use ListRenderer;
+use Milax\Mconsole\Contracts\ListRenderer;
+use Milax\Mconsole\Contracts\FormRenderer;
 
 /**
  * Maps module controller file
@@ -20,9 +21,10 @@ class MapsController extends Controller
     /**
      * Create new class instance
      */
-    public function __construct(ListRenderer $renderer)
+    public function __construct(ListRenderer $list, FormRenderer $form)
     {
-        $this->renderer = $renderer;
+        $this->list = $list;
+        $this->form = $form;
     }
     
     /**
@@ -32,7 +34,7 @@ class MapsController extends Controller
      */
     public function index()
     {
-        return $this->renderer->setQuery(Map::with('places'))->setPerPage(20)->setAddAction('maps/create')->render(function ($item) {
+        return $this->list->setQuery(Map::with('places'))->setPerPage(20)->setAddAction('maps/create')->render(function ($item) {
             return [
                 '#' => $item->id,
                 trans('mconsole::maps.table.name') => $item->name,
@@ -50,7 +52,7 @@ class MapsController extends Controller
      */
     public function create()
     {
-        return view('mconsole::maps.form');
+        return $this->form->render('mconsole::maps.form');
     }
 
     /**
@@ -83,7 +85,7 @@ class MapsController extends Controller
      */
     public function edit($id)
     {
-        return view('mconsole::maps.form', [
+        return $this->form->render('mconsole::maps.form', [
             'item' => Map::find($id),
         ]);
     }

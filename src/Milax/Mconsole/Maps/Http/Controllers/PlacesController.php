@@ -7,7 +7,8 @@ use Illuminate\Http\Request;
 use Milax\Mconsole\Maps\Http\Requests\PlaceRequest;
 use Milax\Mconsole\Maps\Models\Place;
 use Milax\Mconsole\Maps\Models\Map;
-use ListRenderer;
+use Milax\Mconsole\Contracts\ListRenderer;
+use Milax\Mconsole\Contracts\FormRenderer;
 use View;
 
 /**
@@ -23,9 +24,18 @@ class PlacesController extends Controller
     /**
      * Create new class instance
      */
-    public function __construct(Request $request, ListRenderer $renderer)
+    public function __construct(Request $request, ListRenderer $list, FormRenderer $form)
     {
-        $this->renderer = $renderer;
+        $this->list = $list;
+        $this->form = $form;
+        
+        $this->form->addStyles([
+            '/massets/modules/mconsole-maps/css/maps.css',
+        ])->addScripts([
+            sprintf('https://maps.googleapis.com/maps/api/js?key=AIzaSyAfnqLsu6-zbY03Z-5hUtAr8ajewIIt2ms&libraries=places&language=%s', app('API')->options->get('map_picker_language')),
+            '/massets/js/map-picker.js',
+            '/massets/modules/mconsole-maps/js/place.js',
+        ]);
         
         if ($request->segment(3)) {
             $this->map = (int) $request->segment(3);
@@ -42,7 +52,7 @@ class PlacesController extends Controller
      */
     public function index()
     {
-        return $this->renderer->setQuery(Place::with('map')->where('map_id', $this->map->id))->setAddAction(sprintf('maps/%s/places/create', $this->map->id))->render(function ($item) {
+        return $this->list->setQuery(Place::with('map')->where('map_id', $this->map->id))->setAddAction(sprintf('maps/%s/places/create', $this->map->id))->render(function ($item) {
             return [
                 '#' => $item->id,
                 trans('mconsole::place.table.name') => $item->name,
@@ -58,7 +68,7 @@ class PlacesController extends Controller
      */
     public function create()
     {
-        return view('mconsole::places.form');
+        return $this->form->render('mconsole::places.form');
     }
 
     /**
@@ -91,7 +101,7 @@ class PlacesController extends Controller
      */
     public function edit($mapId, $id)
     {
-        return view('mconsole::places.form', [
+        return $this->form->render('mconsole::places.form', [
             'item' => Place::find($id),
         ]);
     }
