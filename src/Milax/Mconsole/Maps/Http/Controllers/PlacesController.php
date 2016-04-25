@@ -102,7 +102,7 @@ class PlacesController extends Controller
     public function edit($mapId, $id)
     {
         return $this->form->render('mconsole::places.form', [
-            'item' => Place::find($id),
+            'item' => Place::findOrFail($id),
         ]);
     }
 
@@ -115,7 +115,7 @@ class PlacesController extends Controller
      */
     public function update(PlaceRequest $request, $mapId, $id)
     {
-        Place::find($id)->update($request->all());
+        Place::findOrFail($id)->update($request->all());
     }
 
     /**

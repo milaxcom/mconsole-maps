@@ -86,7 +86,7 @@ class MapsController extends Controller
     public function edit($id)
     {
         return $this->form->render('mconsole::maps.form', [
-            'item' => Map::find($id),
+            'item' => Map::findOrFail($id),
         ]);
     }
 
@@ -99,7 +99,7 @@ class MapsController extends Controller
      */
     public function update(MapRequest $request, $id)
     {
-        Map::find($id)->update($request->all());
+        Map::findOrFail($id)->update($request->all());
     }
 
     /**
