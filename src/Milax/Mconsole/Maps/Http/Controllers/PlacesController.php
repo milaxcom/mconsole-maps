@@ -16,7 +16,7 @@ use View;
  */
 class PlacesController extends Controller
 {
-    use \HasRedirects;
+    use \HasRedirects, \DoesNotHaveShow;
     
     protected $model = 'Milax\Mconsole\Maps\Models\Place';
     protected $redirectTo = '/mconsole/maps';

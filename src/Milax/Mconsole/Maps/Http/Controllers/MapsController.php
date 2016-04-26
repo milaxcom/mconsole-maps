@@ -13,7 +13,7 @@ use Milax\Mconsole\Contracts\FormRenderer;
  */
 class MapsController extends Controller
 {
-    use \HasRedirects;
+    use \HasRedirects, \DoesNotHaveShow;
     
     protected $model = 'Milax\Mconsole\Maps\Models\Map';
     protected $redirectTo = '/mconsole/maps';
