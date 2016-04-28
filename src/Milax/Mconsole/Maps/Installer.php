@@ -2,7 +2,7 @@
 
 namespace Milax\Mconsole\Maps;
 
-use Milax\Mconsole\Contracts\ModuleInstaller;
+use Milax\Mconsole\Contracts\Modules\Installer;
 
 class Installer implements ModuleInstaller
 {
