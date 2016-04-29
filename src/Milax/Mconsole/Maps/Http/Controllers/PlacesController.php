@@ -32,7 +32,7 @@ class PlacesController extends Controller
         $this->form->addStyles([
             '/massets/modules/mconsole-maps/css/maps.css',
         ])->addScripts([
-            sprintf('https://maps.googleapis.com/maps/api/js?key=AIzaSyAfnqLsu6-zbY03Z-5hUtAr8ajewIIt2ms&libraries=places&language=%s', app('API')->options->get('map_picker_language')),
+            sprintf('https://maps.googleapis.com/maps/api/js?key=AIzaSyAfnqLsu6-zbY03Z-5hUtAr8ajewIIt2ms&libraries=places&language=%s', app('API')->options->getByKey('map_picker_language')),
             '/massets/js/map-picker.js',
             '/massets/modules/mconsole-maps/js/place.js',
         ]);
