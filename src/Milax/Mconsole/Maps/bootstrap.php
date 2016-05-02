@@ -21,7 +21,7 @@ return [
         \Milax\Mconsole\Maps\Installer::uninstall();
     },
     'init' => function () {
-        app('API')->menu->push('content', 'maps_all', [
+        app('API')->menu->push([
             'name' => 'All maps',
             'translation' => 'maps.menu.list.name',
             'url' => 'maps',
@@ -29,8 +29,8 @@ return [
             'route' => 'mconsole.maps.index',
             'visible' => true,
             'enabled' => true,
-        ]);
-        app('API')->menu->push('content', 'maps_form', [
+        ], 'maps_all', 'content');
+        app('API')->menu->push([
             'name' => 'Create page',
             'translation' => 'maps.menu.create.name',
             'url' => 'maps/create',
@@ -38,24 +38,24 @@ return [
             'route' => 'mconsole.maps.create',
             'visible' => false,
             'enabled' => true,
-        ]);
-        app('API')->menu->push('content', 'maps_update', [
+        ], 'maps_form', 'content');
+        app('API')->menu->push([
             'name' => 'Edit maps',
             'translation' => 'maps.menu.update.name',
             'description' => 'maps.menu.update.description',
             'route' => 'mconsole.maps.edit',
             'visible' => false,
             'enabled' => true,
-        ]);
-        app('API')->menu->push('content', 'maps_delete', [
+        ], 'maps_update', 'content');
+        app('API')->menu->push([
             'name' => 'Delete maps',
             'translation' => 'maps.menu.delete.name',
             'description' => 'maps.menu.delete.description',
             'route' => 'mconsole.maps.destroy',
             'visible' => false,
             'enabled' => true,
-        ]);
-        app('API')->menu->push('content', 'place_all', [
+        ], 'maps_delete', 'content');
+        app('API')->menu->push([
             'name' => 'All place',
             'translation' => 'place.menu.list.name',
             'url' => 'place',
@@ -63,8 +63,8 @@ return [
             'route' => 'mconsole.maps.{id}.places.index',
             'visible' => false,
             'enabled' => true,
-        ]);
-        app('API')->menu->push('content', 'place_form', [
+        ], 'place_all', 'content');
+        app('API')->menu->push([
             'name' => 'Create page',
             'translation' => 'place.menu.create.name',
             'url' => 'place/create',
@@ -72,22 +72,22 @@ return [
             'route' => 'mconsole.maps.{id}.places.create',
             'visible' => false,
             'enabled' => true,
-        ]);
-        app('API')->menu->push('content', 'place_update', [
+        ], 'place_form', 'content');
+        app('API')->menu->push([
             'name' => 'Edit place',
             'translation' => 'place.menu.update.name',
             'description' => 'place.menu.update.description',
             'route' => 'mconsole.maps.{id}.places.edit',
             'visible' => false,
             'enabled' => true,
-        ]);
-        app('API')->menu->push('content', 'place_delete', [
+        ], 'place_update', 'content');
+        app('API')->menu->push([
             'name' => 'Delete place',
             'translation' => 'place.menu.delete.name',
             'description' => 'place.menu.delete.description',
             'route' => 'mconsole.maps.{id}.places.destroy',
             'visible' => false,
             'enabled' => true,
-        ]);
+        ], 'place_delete', 'content');
     },
 ];
