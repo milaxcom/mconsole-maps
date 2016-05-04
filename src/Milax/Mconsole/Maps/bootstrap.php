@@ -40,13 +40,13 @@ return [
         ]);
         
         app('API')->acl->register([
-            ['GET', 'maps/{id}/places', 'places.acl.index'],
-            ['GET', 'maps/{id}/places/create', 'places.acl.create'],
-            ['POST', 'maps/{id}/places', 'places.acl.store'],
-            ['GET', 'maps/{id}/places/{places}/edit', 'places.acl.edit'],
-            ['PUT', 'maps/{id}/places/{places}', 'places.acl.update'],
-            ['GET', 'maps/{id}/places/{places}', 'places.acl.show'],
-            ['DELETE', 'maps/{id}/places/{places}', 'places.acl.destroy'],
+            ['GET', 'maps/{id}/places', 'place.acl.index'],
+            ['GET', 'maps/{id}/places/create', 'place.acl.create'],
+            ['POST', 'maps/{id}/places', 'place.acl.store'],
+            ['GET', 'maps/{id}/places/{places}/edit', 'place.acl.edit'],
+            ['PUT', 'maps/{id}/places/{places}', 'place.acl.update'],
+            ['GET', 'maps/{id}/places/{places}', 'place.acl.show'],
+            ['DELETE', 'maps/{id}/places/{places}', 'place.acl.destroy'],
         ]);
         
     },
