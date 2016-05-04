@@ -39,4 +39,13 @@ return [
         'web' => 'Website',
         'comments' => 'Comments',
     ],
+    'acl' => [
+        'index' => 'Maps - places: show list',
+        'create' => 'Maps - places: show create form',
+        'store' => 'Maps - places: saving',
+        'edit' => 'Maps - places: show edit form',
+        'update' => 'Maps - places: updating',
+        'show' => 'Maps - places: view',
+        'destroy' => 'Maps - places: delete',
+    ],
 ];

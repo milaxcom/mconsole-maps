@@ -95,4 +95,13 @@ return [
         'Ukrainian' => 'Ukrainian',
         'Vietnamese' => 'Vietnamese',
     ],
+    'acl' => [
+        'index' => 'Maps: show list',
+        'create' => 'Maps: show create form',
+        'store' => 'Maps: saving',
+        'edit' => 'Maps: show edit form',
+        'update' => 'Maps: updating',
+        'show' => 'Maps: view',
+        'destroy' => 'Maps: delete',
+    ],
 ];
