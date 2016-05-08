@@ -29,23 +29,23 @@ return [
         ], 'maps', 'content');
         
         app('API')->acl->register([
-            ['GET', 'maps', 'maps.acl.index', 'maps'],
-            ['GET', 'maps/create', 'maps.acl.create'],
-            ['POST', 'maps', 'maps.acl.store'],
-            ['GET', 'maps/{maps}/edit', 'maps.acl.edit'],
-            ['PUT', 'maps/{maps}', 'maps.acl.update'],
-            ['GET', 'maps/{maps}', 'maps.acl.show'],
-            ['DELETE', 'maps/{maps}', 'maps.acl.destroy'],
+            ['GET', 'maps', 'mconsole::maps.acl.index', 'maps'],
+            ['GET', 'maps/create', 'mconsole::maps.acl.create'],
+            ['POST', 'maps', 'mconsole::maps.acl.store'],
+            ['GET', 'maps/{maps}/edit', 'mconsole::maps.acl.edit'],
+            ['PUT', 'maps/{maps}', 'mconsole::maps.acl.update'],
+            ['GET', 'maps/{maps}', 'mconsole::maps.acl.show'],
+            ['DELETE', 'maps/{maps}', 'mconsole::maps.acl.destroy'],
         ]);
         
         app('API')->acl->register([
-            ['GET', 'maps/{id}/places', 'place.acl.index'],
-            ['GET', 'maps/{id}/places/create', 'place.acl.create'],
-            ['POST', 'maps/{id}/places', 'place.acl.store'],
-            ['GET', 'maps/{id}/places/{places}/edit', 'place.acl.edit'],
-            ['PUT', 'maps/{id}/places/{places}', 'place.acl.update'],
-            ['GET', 'maps/{id}/places/{places}', 'place.acl.show'],
-            ['DELETE', 'maps/{id}/places/{places}', 'place.acl.destroy'],
+            ['GET', 'maps/{id}/places', 'mconsole::place.acl.index'],
+            ['GET', 'maps/{id}/places/create', 'mconsole::place.acl.create'],
+            ['POST', 'maps/{id}/places', 'mconsole::place.acl.store'],
+            ['GET', 'maps/{id}/places/{places}/edit', 'mconsole::place.acl.edit'],
+            ['PUT', 'maps/{id}/places/{places}', 'mconsole::place.acl.update'],
+            ['GET', 'maps/{id}/places/{places}', 'mconsole::place.acl.show'],
+            ['DELETE', 'maps/{id}/places/{places}', 'mconsole::place.acl.destroy'],
         ]);
         
     },
