@@ -22,7 +22,7 @@ return [
     },
     'init' => function () {
         app('API')->menu->push([
-            'name' => 'maps.menu.list.name',
+            'name' => 'mconsole::maps.menu.list.name',
             'url' => 'maps',
             'visible' => true,
             'enabled' => true,
