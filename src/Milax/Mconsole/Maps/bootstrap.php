@@ -22,8 +22,7 @@ return [
     },
     'init' => function () {
         app('API')->menu->push([
-            'name' => 'Maps',
-            'translation' => 'maps.menu.list.name',
+            'name' => 'maps.menu.list.name',
             'url' => 'maps',
             'visible' => true,
             'enabled' => true,
