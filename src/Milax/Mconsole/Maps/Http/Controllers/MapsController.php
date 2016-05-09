@@ -16,7 +16,6 @@ class MapsController extends Controller
     use \HasRedirects, \DoesNotHaveShow;
     
     protected $model = 'Milax\Mconsole\Maps\Models\Map';
-    protected $redirectTo = '/mconsole/maps';
     
     /**
      * Create new class instance
@@ -25,6 +24,7 @@ class MapsController extends Controller
     {
         $this->list = $list;
         $this->form = $form;
+        $this->redirectTo = mconsole_url('maps');
     }
     
     /**
@@ -39,7 +39,7 @@ class MapsController extends Controller
                 '#' => $item->id,
                 trans('mconsole::maps.table.name') => $item->name,
                 trans('mconsole::maps.table.provider') => $item->provider,
-                trans('mconsole::maps.table.places') => sprintf('<a href="/mconsole/maps/%s/places/create" class="btn btn-xs green-jungle">%s</a> <a href="/mconsole/maps/%s/places" class="btn btn-xs blue">%s</a>', $item->id, trans('mconsole::maps.table.addplace'), $item->id, trans('mconsole::maps.table.viewplaces')),
+                trans('mconsole::maps.table.places') => sprintf('<a href="%s" class="btn btn-xs green-jungle">%s</a> <a href="%s" class="btn btn-xs blue">%s</a>', mconsole_url(sprintf('maps/%s/places/create', $item->id)), trans('mconsole::maps.table.addplace'), mconsole_url(sprintf('maps/%s/places', $item->id)), trans('mconsole::maps.table.viewplaces')),
                 trans('mconsole::maps.table.count') => $item->places->count(),
             ];
         });

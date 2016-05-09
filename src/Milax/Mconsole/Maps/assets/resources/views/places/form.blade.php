@@ -1,7 +1,7 @@
 @if (isset($item))
-	{!! Form::model($item, ['method' => 'PUT', 'route' => ['mconsole.maps.{id}.places.update', $map->id, $item->id]]) !!}
+	{!! Form::model($item, ['method' => 'PUT', 'url' => mconsole_url(sprintf('maps/%s/places/%s', $map->id, $item->id))]) !!}
 @else
-	{!! Form::open(['method' => 'POST', 'route' => ['mconsole.maps.{id}.places.store', $map->id]]) !!}
+	{!! Form::open(['method' => 'POST', 'url' => mconsole_url(sprintf('maps/%s/places', $map->id))]) !!}
 @endif
 
 <input type="hidden" name="map_id" value="{{ $map->id }}" />
@@ -11,7 +11,7 @@
     <div class="col-lg-5 col-md-6">
         <div class="portlet light">
             @include('mconsole::partials.portlet-title', [
-                'back' => sprintf('/mconsole/maps/%s/places', $map->id),
+                'back' => mconsole_url(sprintf('maps/%s/places', $map->id)),
                 'title' => trans('mconsole::place.form.information'),
             ])
 			<div class="portlet-body form">

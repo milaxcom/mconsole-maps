@@ -19,7 +19,6 @@ class PlacesController extends Controller
     use \HasRedirects, \DoesNotHaveShow;
     
     protected $model = 'Milax\Mconsole\Maps\Models\Place';
-    protected $redirectTo = '/mconsole/maps';
     
     /**
      * Create new class instance
@@ -37,10 +36,12 @@ class PlacesController extends Controller
             '/massets/modules/mconsole-maps/js/place.js',
         ]);
         
+        $this->redirectTo = mconsole_url('maps');
+        
         if ($request->segment(3)) {
             $this->map = (int) $request->segment(3);
             $this->map = Map::find($this->map);
-            $this->redirectTo = sprintf('/mconsole/maps/%s/places', $this->map->id);
+            $this->redirectTo = mconsole_url(sprintf('maps/%s/places', $this->map->id));
             View::share('map', $this->map);
         }
     }
