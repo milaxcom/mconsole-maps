@@ -15,10 +15,10 @@ class CreateMapsTable extends Migration
         Schema::create('maps', function (Blueprint $table) {
             $table->increments('id');
             $table->enum('provider', ['2gis', 'google', 'yandex'])->default('google');
-            $table->string('name');
-            $table->text('description');
-            $table->string('center');
-            $table->integer('zoom');
+            $table->string('name')->nullable();
+            $table->text('description')->nullable();
+            $table->string('center')->nullable();
+            $table->integer('zoom')->nullable();
             $table->timestamps();
         });
     }

@@ -14,17 +14,17 @@ class CreatePlacesTable extends Migration
     {
         Schema::create('places', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('map_id');
-            $table->string('latitude');
-            $table->string('longitude');
-            $table->string('name');
-            $table->string('address');
-            $table->string('country');
-            $table->string('city');
-            $table->string('zip');
-            $table->string('phone');
-            $table->string('web');
-            $table->text('comment');
+            $table->integer('map_id')->nullable();
+            $table->string('latitude')->nullable();
+            $table->string('longitude')->nullable();
+            $table->string('name')->nullable();
+            $table->string('address')->nullable();
+            $table->string('country')->nullable();
+            $table->string('city')->nullable();
+            $table->string('zip')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('web')->nullable();
+            $table->text('comment')->nullable();
             $table->boolean('enabled')->default(true);
             $table->timestamps();
         });
