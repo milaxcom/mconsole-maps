@@ -62,7 +62,7 @@
                         ])
                     </div>
                 </div>
-                @include('mconsole::forms.state')
+                @include('mconsole::forms.state', isset($item) ? $item : [])
 			</div>
             <div class="form-actions">
                 @include('mconsole::forms.submit')
