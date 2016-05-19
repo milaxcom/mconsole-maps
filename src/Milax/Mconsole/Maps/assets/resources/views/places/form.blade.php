@@ -80,7 +80,7 @@
                 <div class="form-body map-picker-container">
                     <div class="row">
                         <div class="col-xs-12">
-                            <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+                            <input id="pac-input" class="controls" type="text" placeholder="{{ trans('mconsole::place.form.search') }}">
                             <div class="map"></div>
                         </div>
                     </div>

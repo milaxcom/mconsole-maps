@@ -38,6 +38,7 @@ return [
         'phone' => 'Phone number',
         'web' => 'Website',
         'comments' => 'Comments',
+        'search' => 'Search',
     ],
     'acl' => [
         'index' => 'Maps - places: show list',
