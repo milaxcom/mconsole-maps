@@ -11,7 +11,7 @@
         "php": ">=5.5.9",
         "illuminate/support": "5.2.*",
         "laravelcollective/html": "5.2.*",
-        "milax/cacheable": "*"
+        "misterpaladin/cacheable": "*"
     },
     "autoload": {
         "psr-4": {
