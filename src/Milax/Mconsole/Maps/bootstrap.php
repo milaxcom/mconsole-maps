@@ -29,14 +29,14 @@ return [
         ], 'maps', 'content');
         
         app('API')->acl->register([
-            ['GET', 'maps', 'mconsole::maps.acl.index', 'maps'],
+            ['GET', 'maps', 'mconsole::maps.acl.index'],
             ['GET', 'maps/create', 'mconsole::maps.acl.create'],
             ['POST', 'maps', 'mconsole::maps.acl.store'],
             ['GET', 'maps/{maps}/edit', 'mconsole::maps.acl.edit'],
             ['PUT', 'maps/{maps}', 'mconsole::maps.acl.update'],
             ['GET', 'maps/{maps}', 'mconsole::maps.acl.show'],
             ['DELETE', 'maps/{maps}', 'mconsole::maps.acl.destroy'],
-        ]);
+        ], 'maps');
         
         app('API')->acl->register([
             ['GET', 'maps/{id}/places', 'mconsole::place.acl.index'],
