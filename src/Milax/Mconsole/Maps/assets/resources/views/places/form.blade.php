@@ -51,17 +51,18 @@
                 <div class="row">
                     <div class="col-sm-6 col-xs-12">
                         @include('mconsole::forms.text', [
-                            'label' => trans('mconsole::place.form.longitude'),
-                            'name' => 'longitude',
-                        ])
-                    </div>
-                    <div class="col-sm-6 col-xs-12">
-                        @include('mconsole::forms.text', [
                             'label' => trans('mconsole::place.form.latitude'),
                             'name' => 'latitude',
                         ])
                     </div>
+                    <div class="col-sm-6 col-xs-12">
+                        @include('mconsole::forms.text', [
+                            'label' => trans('mconsole::place.form.longitude'),
+                            'name' => 'longitude',
+                        ])
+                    </div>
                 </div>
+                <input id="geo-parse" type="text" class="form-control" placeholder="{{ trans('mconsole::place.form.parse') }}"/>
                 @include('mconsole::forms.state', isset($item) ? $item : [])
 			</div>
             <div class="form-actions">
@@ -76,7 +77,7 @@
                 'title' => trans('mconsole::place.form.picker'),
                 'fullscreen' => true,
             ])
-			<div class="portlet-body">
+			<div class="portlet-body map-picker-placeholder">
                 <div class="form-body map-picker-container">
                     <div class="row">
                         <div class="col-xs-12">

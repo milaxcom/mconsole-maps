@@ -28,8 +28,8 @@ return [
         'use' => 'Use this place',
         'picker' => 'Select place on the map',
         'information' => 'Place information',
-        'latitude' => 'Longitude',
-        'longitude' => 'Latitude',
+        'latitude' => 'Latitude',
+        'longitude' => 'Longitude',
         'name' => 'Name',
         'address' => 'Address',
         'country' => 'Country',
@@ -39,6 +39,7 @@ return [
         'web' => 'Website',
         'comments' => 'Comments',
         'search' => 'Search',
+        'parse' => 'Insert geo coordinates in "{latitude},{longitude}" format',
     ],
     'acl' => [
         'index' => 'Maps - places: show list',
