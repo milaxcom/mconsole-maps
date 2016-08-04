@@ -55,7 +55,7 @@ class PlacesController extends Controller
     {
         return $this->list->setQuery(Place::with('map')->where('map_id', $this->map->id))->setAddAction(sprintf('maps/%s/places/create', $this->map->id))->render(function ($item) {
             return [
-                '#' => $item->id,
+                trans('mconsole::tables.id') => $item->id,
                 trans('mconsole::place.table.name') => $item->name,
                 trans('mconsole::place.table.address') => $item->address,
             ];

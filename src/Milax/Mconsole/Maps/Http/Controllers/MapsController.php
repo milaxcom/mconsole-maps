@@ -36,7 +36,7 @@ class MapsController extends Controller
     {
         return $this->list->setQuery(Map::with('places'))->setAddAction('maps/create')->render(function ($item) {
             return [
-                '#' => $item->id,
+                trans('mconsole::tables.id') => $item->id,
                 trans('mconsole::maps.table.name') => $item->name,
                 trans('mconsole::maps.table.provider') => $item->provider,
                 trans('mconsole::maps.table.places') => sprintf('<a href="%s" class="btn btn-xs green-jungle">%s</a> <a href="%s" class="btn btn-xs blue">%s</a>', mconsole_url(sprintf('maps/%s/places/create', $item->id)), trans('mconsole::maps.table.addplace'), mconsole_url(sprintf('maps/%s/places', $item->id)), trans('mconsole::maps.table.viewplaces')),
