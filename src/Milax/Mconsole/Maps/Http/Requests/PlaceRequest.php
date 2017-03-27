@@ -2,9 +2,9 @@
 
 namespace Milax\Mconsole\Maps\Http\Requests;
 
-use App\Http\Requests\Request;
+use Illuminate\Foundation\Http\FormRequest;
 
-class PlaceRequest extends Request
+class PlaceRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

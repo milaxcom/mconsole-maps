@@ -64,6 +64,8 @@ class MapsController extends Controller
     public function store(MapRequest $request)
     {
         Map::create($request->all());
+        
+        $this->redirect();
     }
 
     /**
@@ -100,6 +102,8 @@ class MapsController extends Controller
     public function update(MapRequest $request, $id)
     {
         Map::findOrFail($id)->update($request->all());
+        
+        $this->redirect();
     }
 
     /**
@@ -111,5 +115,7 @@ class MapsController extends Controller
     public function destroy($id)
     {
         Map::destroy($id);
+        
+        $this->redirect();
     }
 }

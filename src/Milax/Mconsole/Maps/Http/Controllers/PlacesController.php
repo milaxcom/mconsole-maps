@@ -31,7 +31,7 @@ class PlacesController extends Controller
         $this->form->addStyles([
             '/mconsole-modules/mconsole-maps/css/maps.css',
         ])->addScripts([
-            sprintf('https://maps.googleapis.com/maps/api/js?key=AIzaSyAfnqLsu6-zbY03Z-5hUtAr8ajewIIt2ms&libraries=places&language=%s', app('API')->options->getByKey('map_picker_language')),
+            sprintf('https://maps.googleapis.com/maps/api/js?key=AIzaSyDYi6yVAHAfXjZTiBrDKys9WJtwyxd4Ttg&libraries=places&language=%s', app('API')->options->getByKey('map_picker_language')),
             '/massets/js/map-picker.js',
             '/mconsole-modules/mconsole-maps/js/place.js',
         ]);
@@ -81,6 +81,8 @@ class PlacesController extends Controller
     public function store(PlaceRequest $request)
     {
         Place::create($request->all());
+        
+        $this->redirect();
     }
 
     /**
@@ -117,6 +119,8 @@ class PlacesController extends Controller
     public function update(PlaceRequest $request, $mapId, $id)
     {
         Place::findOrFail($id)->update($request->all());
+        
+        $this->redirect();
     }
 
     /**
@@ -128,5 +132,7 @@ class PlacesController extends Controller
     public function destroy($mapId, $id)
     {
         Place::destroy($id);
+        
+        $this->redirect();
     }
 }
