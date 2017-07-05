@@ -26,7 +26,7 @@ class PlaceRequest extends FormRequest
         return [
             'latitude' => 'required|numeric',
             'longitude' => 'required|numeric',
-            'web' => 'url',
+            'web' => 'nullable|url',
         ];
     }
     
