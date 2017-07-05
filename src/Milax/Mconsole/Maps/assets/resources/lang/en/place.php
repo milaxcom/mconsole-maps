@@ -50,4 +50,5 @@ return [
         'show' => 'Maps - places: view',
         'destroy' => 'Maps - places: delete',
     ],
+    'key' => '<ol><li>Get Google Maps key from <a href="https://developers.google.com/maps/documentation/javascript/get-api-key" target="_blank">here</a></li><li>Put to .env file <code>GOOGLE_MAPS_KEY=yourkey</code></li></ol>',
 ];

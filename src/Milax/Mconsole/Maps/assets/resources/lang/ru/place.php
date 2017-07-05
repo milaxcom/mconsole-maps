@@ -50,4 +50,5 @@ return [
         'show' => 'Карты - точки: просмотр',
         'destroy' => 'Карты - точки: удаление',
     ],
+    'key' => '<ol><li>Получите ключ Google Maps <a href="https://developers.google.com/maps/documentation/javascript/get-api-key" target="_blank">здесь</a></li><li>Добавьте в .env файл переменную <code>GOOGLE_MAPS_KEY=yourkey</code></li></ol>',
 ];
