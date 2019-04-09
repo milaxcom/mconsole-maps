@@ -37,7 +37,7 @@ return [
         'zip' => 'Postal code',
         'phone' => 'Phone number',
         'web' => 'Website',
-        'comments' => 'Comments',
+        'comment' => 'Comments',
         'search' => 'Search',
         'parse' => 'Insert geo coordinates in "{latitude},{longitude}" format',
     ],

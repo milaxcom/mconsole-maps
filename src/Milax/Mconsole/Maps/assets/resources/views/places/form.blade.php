@@ -44,8 +44,8 @@
                     'name' => 'web',
                 ])
                 @include('mconsole::forms.textarea', [
-                    'label' => trans('mconsole::place.form.comments'),
-                    'name' => 'comments',
+                    'label' => trans('mconsole::place.form.comment'),
+                    'name' => 'comment',
                     'size' => '12x3'
                 ])
                 <div class="row">
