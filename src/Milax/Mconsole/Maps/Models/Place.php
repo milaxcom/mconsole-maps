@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Place extends Model
 {
-    protected $fillable = ['map_id', 'address', 'latitude', 'longitude', 'name', 'country', 'city', 'zip', 'phone', 'web', 'comment', 'enabled'];
+    protected $fillable = ['map_id', 'address', 'latitude', 'longitude', 'name', 'country', 'city', 'zip', 'phone', 'image', 'web', 'comment', 'enabled'];
     
     /**
      * Relationship to Milax\Mconsole\Maps\Models\Map

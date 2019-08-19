@@ -40,6 +40,10 @@
                     'name' => 'phone',
                 ])
                 @include('mconsole::forms.text', [
+                    'label' => trans('mconsole::place.form.image'),
+                    'name' => 'image',
+                ])
+                @include('mconsole::forms.text', [
                     'label' => trans('mconsole::place.form.web'),
                     'name' => 'web',
                 ])

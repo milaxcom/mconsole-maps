@@ -36,6 +36,7 @@ return [
         'city' => 'City',
         'zip' => 'Postal code',
         'phone' => 'Phone number',
+        'image' => 'Image',
         'web' => 'Website',
         'comment' => 'Comments',
         'search' => 'Search',
