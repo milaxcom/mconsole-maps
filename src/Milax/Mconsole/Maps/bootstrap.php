@@ -32,20 +32,20 @@ return [
             ['GET', 'maps', 'mconsole::maps.acl.index'],
             ['GET', 'maps/create', 'mconsole::maps.acl.create'],
             ['POST', 'maps', 'mconsole::maps.acl.store'],
-            ['GET', 'maps/{maps}/edit', 'mconsole::maps.acl.edit'],
-            ['PUT', 'maps/{maps}', 'mconsole::maps.acl.update'],
-            ['GET', 'maps/{maps}', 'mconsole::maps.acl.show'],
-            ['DELETE', 'maps/{maps}', 'mconsole::maps.acl.destroy'],
+            ['GET', 'maps/{map}/edit', 'mconsole::maps.acl.edit'],
+            ['PUT', 'maps/{map}', 'mconsole::maps.acl.update'],
+            ['GET', 'maps/{map}', 'mconsole::maps.acl.show'],
+            ['DELETE', 'maps/{map}', 'mconsole::maps.acl.destroy'],
         ], 'maps');
         
         app('API')->acl->register([
             ['GET', 'maps/{id}/places', 'mconsole::place.acl.index'],
             ['GET', 'maps/{id}/places/create', 'mconsole::place.acl.create'],
             ['POST', 'maps/{id}/places', 'mconsole::place.acl.store'],
-            ['GET', 'maps/{id}/places/{places}/edit', 'mconsole::place.acl.edit'],
-            ['PUT', 'maps/{id}/places/{places}', 'mconsole::place.acl.update'],
-            ['GET', 'maps/{id}/places/{places}', 'mconsole::place.acl.show'],
-            ['DELETE', 'maps/{id}/places/{places}', 'mconsole::place.acl.destroy'],
+            ['GET', 'maps/{id}/places/{place}/edit', 'mconsole::place.acl.edit'],
+            ['PUT', 'maps/{id}/places/{place}', 'mconsole::place.acl.update'],
+            ['GET', 'maps/{id}/places/{place}', 'mconsole::place.acl.show'],
+            ['DELETE', 'maps/{id}/places/{place}', 'mconsole::place.acl.destroy'],
         ]);
         
     },
