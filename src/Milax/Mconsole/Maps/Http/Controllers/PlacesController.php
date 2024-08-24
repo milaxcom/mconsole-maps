@@ -19,6 +19,8 @@ class PlacesController extends Controller
     use \HasRedirects, \DoesNotHaveShow;
     
     protected $model = 'Milax\Mconsole\Maps\Models\Place';
+
+    protected $form, $list, $map, $redirectTo;
     
     /**
      * Create new class instance

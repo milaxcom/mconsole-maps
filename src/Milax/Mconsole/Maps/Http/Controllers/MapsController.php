@@ -16,6 +16,8 @@ class MapsController extends Controller
     use \HasRedirects, \DoesNotHaveShow;
     
     protected $model = 'Milax\Mconsole\Maps\Models\Map';
+
+    protected $list, $form, $redirectTo;
     
     /**
      * Create new class instance
