@@ -1,8 +1,6 @@
-@if (isset($item))
-	{!! Form::model($item, ['method' => 'PUT', 'url' => mconsole_url(sprintf('maps/%s/places/%s', $map->id, $item->id))]) !!}
-@else
-	{!! Form::open(['method' => 'POST', 'url' => mconsole_url(sprintf('maps/%s/places', $map->id))]) !!}
-@endif
+<form method="POST" action="{{ mconsole_url(isset($item) ? sprintf('maps/%s/places/%s', $map->id, $item->id) : sprintf('maps/%s/places', $map->id)) }}">
+    @if (isset($item))@method('PUT')@endif
+    @csrf
 
 <input type="hidden" name="map_id" value="{{ $map->id }}" />
 
@@ -18,51 +16,62 @@
                 @include('mconsole::forms.text', [
                     'label' => trans('mconsole::place.form.name'),
                     'name' => 'name',
+                    'value' => $item->name ?? null,
                 ])
                 @include('mconsole::forms.text', [
                     'label' => trans('mconsole::place.form.country'),
                     'name' => 'country',
+                    'value' => $item->country ?? null,
                 ])
                 @include('mconsole::forms.text', [
                     'label' => trans('mconsole::place.form.city'),
                     'name' => 'city',
+                    'value' => $item->city ?? null,
                 ])
                 @include('mconsole::forms.text', [
                     'label' => trans('mconsole::place.form.address'),
                     'name' => 'address',
+                    'value' => $item->address ?? null,
                 ])
                 @include('mconsole::forms.text', [
                     'label' => trans('mconsole::place.form.zip'),
                     'name' => 'zip',
+                    'value' => $item->zip ?? null,
                 ])
                 @include('mconsole::forms.text', [
                     'label' => trans('mconsole::place.form.phone'),
                     'name' => 'phone',
+                    'value' => $item->phone ?? null,
                 ])
                 @include('mconsole::forms.text', [
                     'label' => trans('mconsole::place.form.image'),
                     'name' => 'image',
+                    'value' => $item->image ?? null,
                 ])
                 @include('mconsole::forms.text', [
                     'label' => trans('mconsole::place.form.web'),
                     'name' => 'web',
+                    'value' => $item->web ?? null,
                 ])
                 @include('mconsole::forms.textarea', [
                     'label' => trans('mconsole::place.form.comment'),
                     'name' => 'comment',
-                    'size' => '12x3'
+                    'size' => '12x3',
+                    'value' => $item->comment ?? null,
                 ])
                 <div class="row">
                     <div class="col-sm-6 col-xs-12">
                         @include('mconsole::forms.text', [
                             'label' => trans('mconsole::place.form.latitude'),
                             'name' => 'latitude',
+                            'value' => $item->latitude ?? null,
                         ])
                     </div>
                     <div class="col-sm-6 col-xs-12">
                         @include('mconsole::forms.text', [
                             'label' => trans('mconsole::place.form.longitude'),
                             'name' => 'longitude',
+                            'value' => $item->longitude ?? null,
                         ])
                     </div>
                 </div>
@@ -107,4 +116,4 @@
     
 </div>
 
-{!! Form::close() !!}
+</form>
